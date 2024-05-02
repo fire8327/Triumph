@@ -11,6 +11,9 @@
                 <NuxtLink>О нас</NuxtLink>
                 <NuxtLink class="py-0.5 px-4 rounded-full bg-[#292929] border border-[#292929] text-white transition-all duration-500 hover:text-[#292929] hover:bg-transparent">Войти</NuxtLink>
             </nav>
+            <button class="lg:hidden">
+                <Icon name="ph:list-light" class="text-3xl"/>
+            </button>
         </div>
     </header>
 </template>
