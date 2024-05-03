@@ -34,3 +34,7 @@
         @apply max-w-[var(--widthContent)]
     } 
 }
+
+.swiper-pagination-bullet-active {
+    @apply !bg-[#b684b3]
+}
