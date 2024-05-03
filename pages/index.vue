@@ -47,30 +47,31 @@
         </div>
     </div>
     <div class="flex flex-col gap-6 text-lg">
-        <p class="font-Comfortaa text-2xl">Наша команда</p>
-        <p class="opacity-70">Наши аниматоры - это настоящие профессионалы своего дела, полные энтузиазма и творческой энергии. Они обладают богатым опытом работы и знают, как создать атмосферу радости и веселья на любом мероприятии.</p>
+        <p class="font-Comfortaa text-2xl">Наши услуги</p>
+        <p class="opacity-70">Мы предлагаем широкий спектр услуг для успешной реализации вашего мероприятия. Независимо от его масштаба и характера, наша команда готова обеспечить вам все необходимое для создания незабываемого и эффективного события.</p>
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-            <div class="flex flex-col gap-6">
-                <img src="/images/team/1.png" alt="" class="rounded-xl bg-[#D5EDFE]">
-                <p class="text-xl font-Comfortaa">Дмитрий Петров</p>
-                <p class="opacity-70">Планирует, координирует и реализует мероприятия от начала до конца, включая выбор места проведения, составление бюджета, работу с поставщиками, а также обеспечение безупречного хода события.</p>
+            <div class="flex flex-col gap-6 items-center">
+                <img src="/images/services/1.jpg" alt="" class="rounded-xl aspect-[7/10] object-cover">
+                <p class="text-xl font-Comfortaa">Детские праздники</p>   
+                <p class="opacity-70 text-justify">Создание волшебной атмосферы с помощью оформления, соответствующего выбранной теме, будь то сказочные герои, мультфильмы или приключения.</p>             
             </div>
-            <div class="flex flex-col gap-6">
-                <img src="/images/team/2.png" alt="" class="rounded-xl bg-[#FBDEED]">
-                <p class="text-xl font-Comfortaa">Ирина Кузнецова</p>
-                <p class="opacity-70">Создаёт атмосферу мероприятия через декорации, цветовое оформление, освещение и другие элементы, чтобы подчеркнуть тему и общий стиль события.</p>
+            <div class="flex flex-col gap-6 items-center">
+                <img src="/images/services/2.jpg" alt="" class="rounded-xl aspect-[7/10] object-cover">
+                <p class="text-xl font-Comfortaa">Праздник под ключ</p> 
+                <p class="opacity-70 text-justify">Организация мероприятия от начала до конца, включая выбор места проведения, разработку темы, составление бюджета и работу с поставщиками.</p>                
             </div>
-            <div class="flex flex-col gap-6">
-                <img src="/images/team/3.png" alt="" class="rounded-xl bg-[#F2F8DA]">
-                <p class="text-xl font-Comfortaa">Ольга Николаева</p>
-                <p class="opacity-70">Захватывает ключевые моменты события через фотографии или видео, создавая незабываемые визуальные воспоминания для участников.</p>
+            <div class="flex flex-col gap-6 items-center">
+                <img src="/images/services/3.jpg" alt="" class="rounded-xl aspect-[7/10] object-cover">
+                <p class="text-xl font-Comfortaa">Фотосессии</p> 
+                <p class="opacity-70 text-justify">Использование высококачественной фототехники и освещения для создания красивых и запоминающихся изображений.</p>                
             </div>
-            <div class="flex flex-col gap-6">
-                <img src="/images/team/4.png" alt="" class="rounded-xl bg-[#FBE4D4]">
-                <p class="text-xl font-Comfortaa">Максим Федоров</p>
-                <p class="opacity-70">Отвечает за планирование и управление логистикой мероприятия, включая транспорт, размещение гостей, распределение ресурсов и управление временем.</p>
+            <div class="flex flex-col gap-6 items-center">
+                <img src="/images/services/4.jpg" alt="" class="rounded-xl aspect-[7/10] object-cover">
+                <p class="text-xl font-Comfortaa">Аренда</p> 
+                <p class="opacity-70 text-justify">Предоставление широкого выбора мебели, декораций, звукового и светового оборудования для вашего мероприятия.</p>                
             </div>
         </div>
+        <NuxtLink to="/" class="py-0.5 px-4 rounded-full bg-[#b684b3] border border-[#b684b3] text-white transition-all duration-500 hover:text-[#b684b3] hover:bg-transparent w-fit self-end">Узнать подробнее</NuxtLink>
     </div>
     <Feedback></Feedback>
 </template>
