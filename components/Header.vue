@@ -9,7 +9,7 @@
                 <NuxtLink class="flex flex-col after:transition-all after:duration-500 after:h-px after:w-0 after:bg-[#b684b3] hover:after:w-full">Фотогалерея</NuxtLink>
                 <NuxtLink class="flex flex-col after:transition-all after:duration-500 after:h-px after:w-0 after:bg-[#b684b3] hover:after:w-full">Форум</NuxtLink>
                 <NuxtLink to="/about" class="flex flex-col after:transition-all after:duration-500 after:h-px after:w-0 after:bg-[#b684b3] hover:after:w-full">О нас</NuxtLink>
-                <NuxtLink class="flex flex-col after:transition-all after:duration-500 after:h-px after:w-0 after:bg-[#b684b3] hover:after:w-full">Контакты</NuxtLink>
+                <NuxtLink to="/contacts" class="flex flex-col after:transition-all after:duration-500 after:h-px after:w-0 after:bg-[#b684b3] hover:after:w-full">Контакты</NuxtLink>
                 <NuxtLink class="py-0.5 px-4 rounded-full bg-[#b684b3] border border-[#b684b3] text-white transition-all duration-500 hover:text-[#b684b3] hover:bg-transparent">Войти</NuxtLink>
             </nav>
             <button class="lg:hidden" @click="isMenuShow = !isMenuShow">

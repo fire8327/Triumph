@@ -13,7 +13,7 @@
         </div> 
     </div>
     <div class="flex flex-col gap-4 text-xl">
-        <p class="font-Comfortaa text-2xl">Нас благодарят <span class="text-[#b684b3]">за:</span></p>
+        <p class="font-Comfortaa text-2xl">Нас благодарят за то, что <span class="text-[#b684b3]">мы:</span></p>
         <ul class="list-inside list-disc text-[#292929]/70">
             <li class="marker:text-[#b684b3]">Приносим радость, смех и позитивную атмосферу.</li>
             <li class="marker:text-[#b684b3]">Экономим время клиента и сохраняем нервные клетки.</li>

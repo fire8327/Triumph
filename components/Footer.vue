@@ -4,7 +4,8 @@
             <NuxtLink class="flex flex-col after:transition-all after:duration-500 after:h-px after:w-0 after:bg-[#b684b3] hover:after:w-full">Услуги</NuxtLink>
             <NuxtLink class="flex flex-col after:transition-all after:duration-500 after:h-px after:w-0 after:bg-[#b684b3] hover:after:w-full">Фотогалерея</NuxtLink>
             <NuxtLink class="flex flex-col after:transition-all after:duration-500 after:h-px after:w-0 after:bg-[#b684b3] hover:after:w-full">Форум</NuxtLink>
-            <NuxtLink class="flex flex-col after:transition-all after:duration-500 after:h-px after:w-0 after:bg-[#b684b3] hover:after:w-full">О нас</NuxtLink>
+            <NuxtLink to="/about" class="flex flex-col after:transition-all after:duration-500 after:h-px after:w-0 after:bg-[#b684b3] hover:after:w-full">О нас</NuxtLink>
+            <NuxtLink to="/contacts" class="flex flex-col after:transition-all after:duration-500 after:h-px after:w-0 after:bg-[#b684b3] hover:after:w-full">Контакты</NuxtLink>
             <div class="h-5 w-px bg-[#b684b3] max-lg:hidden"></div>
             <div class="flex items-center gap-4">
                 <NuxtLink class="transition-all duration-500 hover:opacity-70">
