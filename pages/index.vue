@@ -17,12 +17,12 @@
         </SwiperSlide>
     </Swiper>
     <div class="flex flex-col items-center text-center h-fit gap-6 rounded-xl border border-[#b684b3] transition-all duration-500 hover:shadow-none shadow-[0px_0px_13px_-7px_black] p-4">
-        <p class="font-Comfortaa text-2xl">Добро пожаловать в Триумф!</p>
-        <p class="text-lg max-w-2xl opacity-70">Создайте незабываемый праздник с нами! В Триумфе мы стремимся сделать каждый момент особенным, запоминающимся и волшебным для вас.</p>
+        <p class="font-Comfortaa text-3xl">Добро пожаловать в Триумф!</p>
+        <p class="text-xl max-w-2xl opacity-70">Создайте незабываемый праздник с нами! В Триумфе мы стремимся сделать каждый момент особенным, запоминающимся и волшебным для вас.</p>
     </div>
     <div class="flex flex-col gap-6">
-        <p class="font-Comfortaa text-2xl">Почему выбирают нас?</p>
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 text-lg">
+        <p class="font-Comfortaa text-3xl">Почему выбирают нас?</p>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 text-xl">
             <div class="flex flex-col gap-4 rounded-xl border border-[#b684b3] transition-all duration-500 hover:shadow-none shadow-[0px_0px_13px_-7px_black] p-4">
                 <div class="flex items-center gap-4">
                     <p class="font-Comfortaa">Индивидуальный подход</p>
@@ -46,8 +46,8 @@
             </div>
         </div>
     </div>
-    <div class="flex flex-col gap-6 text-lg">
-        <p class="font-Comfortaa text-2xl">Наши услуги</p>
+    <div class="flex flex-col gap-6 text-xl">
+        <p class="font-Comfortaa text-3xl">Наши услуги</p>
         <p class="opacity-70">Мы предлагаем широкий спектр услуг для успешной реализации вашего мероприятия. Независимо от его масштаба и характера, наша команда готова обеспечить вам все необходимое для создания незабываемого и эффективного события.</p>
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
             <div class="flex flex-col gap-6 items-center">
