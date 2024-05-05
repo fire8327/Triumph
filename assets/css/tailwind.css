@@ -38,3 +38,6 @@
 .swiper-pagination-bullet-active {
     @apply !bg-[#b684b3]
 }
+.swiper-button-next::after, .swiper-button-prev::after {
+    @apply !text-[#b684b3] !text-3xl
+}
