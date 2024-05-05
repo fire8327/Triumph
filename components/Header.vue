@@ -22,4 +22,11 @@
 <script setup>
     /* показ меню */
     const isMenuShow = ref(false) 
+
+
+    /* хук */
+    const nuxtApp = useNuxtApp()
+    nuxtApp.hook('page:start', () => {
+        isMenuShow.value = false
+    })
 </script>
