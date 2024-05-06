@@ -16,7 +16,7 @@
                     <li><span class="text-[#b684b3] font-Comfortaa">Безопасность:</span> Мы обеспечиваем безопасность всех участников мероприятия, следя за тем, чтобы игры и развлечения были безопасны и подходили для детей.</li>
                 </ul>
                 <p class="font-Comfortaa text-3xl opacity-80">{{ prices.kids.toLocaleString() }}₽</p>
-                <button class="w-fit text-center py-0.5 px-4 rounded-full bg-[#b684b3] border border-[#b684b3] text-white transition-all duration-500 hover:text-[#b684b3] hover:bg-transparent">Заказать праздник</button>
+                <button @click="isServicesFormShow = true, selectService('Детские праздники', prices.kids)" class="w-fit text-center py-0.5 px-4 rounded-full bg-[#b684b3] border border-[#b684b3] text-white transition-all duration-500 hover:text-[#b684b3] hover:bg-transparent">Заказать праздник</button>
             </div>
         </div>
     </div>
@@ -33,7 +33,7 @@
                     <li><span class="text-[#b684b3] font-Comfortaa">Превосходное качество:</span> Наша команда стремится к созданию высококачественного мероприятия с оригинальными идеями и инновационными решениями.</li>
                 </ul>
                 <p class="font-Comfortaa text-3xl opacity-80">{{ prices.companyParty.toLocaleString() }}₽</p>
-                <button class="w-fit text-center py-0.5 px-4 rounded-full bg-[#b684b3] border border-[#b684b3] text-white transition-all duration-500 hover:text-[#b684b3] hover:bg-transparent">Заказать праздник</button>
+                <button @click="isServicesFormShow = true, selectService('Корпоратив', prices.companyParty)" class="w-fit text-center py-0.5 px-4 rounded-full bg-[#b684b3] border border-[#b684b3] text-white transition-all duration-500 hover:text-[#b684b3] hover:bg-transparent">Заказать праздник</button>
             </div>
         </div>
     </div>
@@ -50,7 +50,7 @@
                     <li><span class="text-[#b684b3] font-Comfortaa">Управление стрессом:</span> Наша команда помогает управлять всеми аспектами планирования свадьбы, освобождая вас от стресса и позволяя наслаждаться этим важным моментом в вашей жизни.</li>
                 </ul>
                 <p class="font-Comfortaa text-3xl opacity-80">{{ prices.wedding.toLocaleString() }}₽</p>
-                <button class="w-fit text-center py-0.5 px-4 rounded-full bg-[#b684b3] border border-[#b684b3] text-white transition-all duration-500 hover:text-[#b684b3] hover:bg-transparent">Заказать праздник</button>
+                <button @click="isServicesFormShow = true, selectService('Свадьба', prices.wedding)" class="w-fit text-center py-0.5 px-4 rounded-full bg-[#b684b3] border border-[#b684b3] text-white transition-all duration-500 hover:text-[#b684b3] hover:bg-transparent">Заказать праздник</button>
             </div>
         </div>
     </div>
@@ -67,9 +67,24 @@
                     <li><span class="text-[#b684b3] font-Comfortaa">Индивидуальный подход:</span> Мы учитываем ваши предпочтения и желания, создавая персонализированный праздник, который отражает ваш стиль и вкус.</li>
                 </ul>
                 <p class="font-Comfortaa text-3xl opacity-80">{{ prices.readyMade.toLocaleString() }}₽</p>
-                <button class="w-fit text-center py-0.5 px-4 rounded-full bg-[#b684b3] border border-[#b684b3] text-white transition-all duration-500 hover:text-[#b684b3] hover:bg-transparent">Заказать праздник</button>
+                <button @click="isServicesFormShow = true, selectService('Праздник под ключ', prices.readyMade)" class="w-fit text-center py-0.5 px-4 rounded-full bg-[#b684b3] border border-[#b684b3] text-white transition-all duration-500 hover:text-[#b684b3] hover:bg-transparent">Заказать праздник</button>
             </div>
         </div>
+    </div>
+    <div @click="isServicesFormShow = false" class="fixed inset-0 bg-black/30 z-[5] transition-all duration-500" :class="{'-translate-x-full' : !isServicesFormShow}"></div>
+    <div class="fixed top-1/2 -translate-y-1/2 left-1/2 z-[6] transition-all duration-50 w-full px-[15px] flex items-center justify-center text-xl" :class="isServicesFormShow ? '-translate-x-1/2' : 'translate-x-[3000px]'">
+        <FormKit @submit="serviceFeedback" type="form" form-class="flex flex-col gap-5 w-full max-w-[500px] px-5 py-7 bg-white rounded-[30px] relative" :actions="false">
+            <button type="button" @click="isServicesFormShow = false" class="absolute top-2 right-4">
+                <Icon class="text-5xl" name="material-symbols-light:close-small-rounded"/>
+            </button>
+            <p class="font-Comfortaa text-2xl text-[#b684b3]">Заказ мероприятия</p>
+            <div class="flex flex-col gap-4 mt-2.5">
+                <FormKit v-model="servicesForm.phone" type="text" name="Телефон" validation="required|length:11" messages-class="text-[#E9556D] font-Comfortaa text-base mt-2" input-class="px-4 py-1 border border-[#b684b3] focus:outline-none rounded-[20px] w-full" placeholder="Телефон"/>
+                <FormKit v-model="servicesForm.service" type="select" name="Выбранная услуга" validation="required" :options="['Детские праздники','Корпоратив','Свадьба','Праздник под ключ']" messages-class="text-[#E9556D] font-Comfortaa text-base mt-2" input-class="px-4 py-1 border border-[#b684b3] focus:outline-none rounded-[20px] w-full" placeholder="Выбранная услуга"/>
+                <FormKit v-model="servicesForm.serviceDesc" type="textarea" name="Описание мероприятия" messages-class="text-[#E9556D] font-Comfortaa text-base mt-2" input-class="px-4 py-1 border border-[#b684b3] focus:outline-none rounded-[20px] w-full" placeholder="Кратко опишите своё мероприятие"/>
+            </div>
+            <button class="w-fit text-center mx-auto py-0.5 px-4 rounded-full bg-[#b684b3] border border-[#b684b3] text-white transition-all duration-500 hover:text-[#b684b3] hover:bg-transparent">Оформить</button>
+        </FormKit>    
     </div>
 </template>
 
@@ -81,4 +96,21 @@
         wedding: 50000,
         readyMade: 30000
     })
+
+    
+    /* показ формы и создание полей */
+    const isServicesFormShow = ref(false)
+    const servicesForm = ref({
+        phone: "",
+        service: "",
+        serviceDesc: "",
+        price: "",
+        additional: ""
+    })
+
+
+    /* выбор услуги */
+    const selectService = (service, price) => {
+        servicesForm.value.service = service
+    }
 </script>

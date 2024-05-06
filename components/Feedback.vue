@@ -8,15 +8,15 @@
     <button @click="isFeedbackShow = false" class="fixed top-8 right-8 z-[6]" :class="{'hidden' : !isFeedbackShow}">
         <Icon class="text-3xl text-white" name="ic:baseline-close"/>
     </button>
-    <div class="fixed z-[6] transition-all duration-500 left-1/2 top-1/2 -translate-y-1/2 text-lg" :class="isFeedbackShow ? '-translate-x-1/2' : 'translate-x-[5000px]'">
+    <div class="fixed top-1/2 -translate-y-1/2 left-1/2 z-[6] transition-all duration-50 w-full px-[15px] flex items-center justify-center text-xl" :class="isFeedbackShow ? '-translate-x-1/2' : 'translate-x-[5000px]'">
         <FormKit type="form" :actions="false" form-class="p-4 bg-white flex flex-col gap-8 w-full max-w-[300px] rounded-xl" messages-class="hidden">
-            <p class="text-xl font-Comfortaa">Форма обратной связи</p>
+            <p class="text-xl font-Comfortaa text-[#b684b3]">Форма обратной связи</p>
             <div class="flex flex-col gap-4">
                 <FormKit type="text" name="Имя" validation="required" messages-class="text-[#E9556D] font-Comfortaa" input-class="w-full rounded-xl bg-transparent focus:outline-none border border-[#b684b3] py-2 px-4" placeholder="Ваше имя"></FormKit>
                 <FormKit type="text" name="Почта" validation="required|email" messages-class="text-[#E9556D] font-Comfortaa" input-class="w-full rounded-xl bg-transparent focus:outline-none border border-[#b684b3] py-2 px-4" placeholder="Ваша почта"></FormKit>
                 <FormKit type="text" name="Номер телефона" validation="required" messages-class="text-[#E9556D] font-Comfortaa" input-class="w-full rounded-xl bg-transparent focus:outline-none border border-[#b684b3] py-2 px-4" placeholder="Ваш номер телефона"></FormKit>
             </div>
-            <button type="submit" class="py-0.5 px-4 rounded-full bg-[#b684b3] border border-[#b684b3] text-white transition-all duration-500 hover:text-[#b684b3] hover:bg-transparent w-fit">Отправить</button>
+            <button type="submit" class="py-0.5 mx-auto px-4 rounded-full bg-[#b684b3] border border-[#b684b3] text-white transition-all duration-500 hover:text-[#b684b3] hover:bg-transparent w-fit">Отправить</button>
         </FormKit>
     </div>
 </template>
