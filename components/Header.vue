@@ -9,6 +9,9 @@
                 <NuxtLink to="/gallery" class="flex flex-col after:transition-all after:duration-500 after:h-px after:w-0 after:bg-[#b684b3] hover:after:w-full">Фотогалерея</NuxtLink>
                 <NuxtLink to="/about" class="flex flex-col after:transition-all after:duration-500 after:h-px after:w-0 after:bg-[#b684b3] hover:after:w-full">О нас</NuxtLink>
                 <NuxtLink to="/contacts" class="flex flex-col after:transition-all after:duration-500 after:h-px after:w-0 after:bg-[#b684b3] hover:after:w-full">Контакты</NuxtLink>
+                <NuxtLink v-if="authenticated" to="/profile">
+                    <Icon class="text-[28px] text-[#b684b3]" name="material-symbols:account-circle"/>
+                </NuxtLink>
                 <button @click="logout" v-if="authenticated" class="py-0.5 px-4 rounded-full hover:bg-[#b684b3] border border-[#b684b3] hover:text-white transition-all duration-500 text-[#b684b3] bg-transparent">Выход</button>
                 <NuxtLink v-else to="/auth" class="py-0.5 px-4 rounded-full bg-[#b684b3] border border-[#b684b3] text-white transition-all duration-500 hover:text-[#b684b3] hover:bg-transparent">Вход</NuxtLink>
             </nav>
@@ -44,6 +47,7 @@
 
 
     /* выход из аккаунта */
+    const router = useRouter()
     const logout = () => {
         authenticated.value = false
         id.value = null
