@@ -9,13 +9,17 @@
                 <NuxtLink to="/gallery" class="flex flex-col after:transition-all after:duration-500 after:h-px after:w-0 after:bg-[#b684b3] hover:after:w-full">Фотогалерея</NuxtLink>
                 <NuxtLink to="/about" class="flex flex-col after:transition-all after:duration-500 after:h-px after:w-0 after:bg-[#b684b3] hover:after:w-full">О нас</NuxtLink>
                 <NuxtLink to="/contacts" class="flex flex-col after:transition-all after:duration-500 after:h-px after:w-0 after:bg-[#b684b3] hover:after:w-full">Контакты</NuxtLink>
-                <NuxtLink to="/auth" class="py-0.5 px-4 rounded-full bg-[#b684b3] border border-[#b684b3] text-white transition-all duration-500 hover:text-[#b684b3] hover:bg-transparent">Войти</NuxtLink>
+                <button v-if="authenticated">Выйти</button>
+                <NuxtLink v-else to="/auth" class="py-0.5 px-4 rounded-full bg-[#b684b3] border border-[#b684b3] text-white transition-all duration-500 hover:text-[#b684b3] hover:bg-transparent">Войти</NuxtLink>
             </nav>
             <button class="lg:hidden" @click="isMenuShow = !isMenuShow">
                 <Icon name="ph:list-light" class="text-3xl"/>
             </button>
         </div>
         <div class="fixed top-20 bg-black/70 inset-0 lg:hidden max-lg:z-[4]" :class="{'hidden' : !isMenuShow}"></div>
+        <button type="button" @click="messageTitle = null" class="fixed top-10 right-10 z-[11] cursor-pointer flex items-center gap-4 px-6 py-2 rounded-2xl w-fit bg-white shadow-[0px_0px_13px_-7px_black]" :class="messageType ? ' text-[#b684b3]' : 'text-red-500'" v-if="messageTitle">
+            <span>{{messageTitle}}</span>
+        </button>
     </header>
 </template>
 
@@ -29,4 +33,12 @@
     nuxtApp.hook('page:start', () => {
         isMenuShow.value = false
     })
+
+
+    /* проверка входа */
+    const { authenticated, role } = storeToRefs(useUserStore())
+
+
+    /* создание сообщений */
+    const { messageTitle, messageType } = storeToRefs(useMessagesStore())
 </script>
