@@ -5,7 +5,7 @@
                 <img src="/images/header/logo.webp" alt="" class="w-44">    
             </NuxtLink>
             <nav class="flex items-center gap-6 transition-all duration-500 max-lg:py-6 max-lg:absolute max-lg:w-full max-lg:left-0 max-lg:bg-white max-lg:border-t border-[#b684b3] max-lg:flex-col max-lg:z-[5]" :class="isMenuShow ? 'max-lg:top-full' : 'max-lg:top-0 max-lg:-translate-y-full'">
-                <NuxtLink class="flex flex-col after:transition-all after:duration-500 after:h-px after:w-0 after:bg-[#b684b3] hover:after:w-full">Услуги</NuxtLink>
+                <NuxtLink to="/services" class="flex flex-col after:transition-all after:duration-500 after:h-px after:w-0 after:bg-[#b684b3] hover:after:w-full">Услуги</NuxtLink>
                 <NuxtLink to="/gallery" class="flex flex-col after:transition-all after:duration-500 after:h-px after:w-0 after:bg-[#b684b3] hover:after:w-full">Фотогалерея</NuxtLink>
                 <NuxtLink to="/about" class="flex flex-col after:transition-all after:duration-500 after:h-px after:w-0 after:bg-[#b684b3] hover:after:w-full">О нас</NuxtLink>
                 <NuxtLink to="/contacts" class="flex flex-col after:transition-all after:duration-500 after:h-px after:w-0 after:bg-[#b684b3] hover:after:w-full">Контакты</NuxtLink>
