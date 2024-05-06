@@ -10,18 +10,18 @@
             </div>
             <div class="flex flex-col gap-6 items-center">
                 <img src="/images/services/2.jpg" alt="" class="rounded-xl aspect-[7/10] object-cover">
-                <p class="text-xl font-Comfortaa">Праздник под ключ</p> 
-                <p class="opacity-70 text-justify">Организация мероприятия от начала до конца, включая выбор места проведения, разработку темы, составление бюджета и работу с поставщиками.</p>                
+                <p class="text-xl font-Comfortaa">Корпоратив</p>   
+                <p class="opacity-70 text-justify">Поднимите бокал за успехи вашего бизнеса! Мы предлагаем креативные решения для организации корпоративных событий.</p>             
             </div>
             <div class="flex flex-col gap-6 items-center">
                 <img src="/images/services/3.jpg" alt="" class="rounded-xl aspect-[7/10] object-cover">
-                <p class="text-xl font-Comfortaa">Фотосессии</p> 
-                <p class="opacity-70 text-justify">Использование высококачественной фототехники и освещения для создания красивых и запоминающихся изображений.</p>                
+                <p class="text-xl font-Comfortaa">Свадьба</p>   
+                <p class="opacity-70 text-justify">Ваша история любви заслуживает волшебного начала, и мы поможем вам создать свадебное торжество, которое будет отражать вашу уникальность и стиль. </p>             
             </div>
             <div class="flex flex-col gap-6 items-center">
                 <img src="/images/services/4.jpg" alt="" class="rounded-xl aspect-[7/10] object-cover">
-                <p class="text-xl font-Comfortaa">Аренда</p> 
-                <p class="opacity-70 text-justify">Предоставление широкого выбора мебели, декораций, звукового и светового оборудования для вашего мероприятия.</p>                
+                <p class="text-xl font-Comfortaa">Праздник под ключ</p> 
+                <p class="opacity-70 text-justify">Организация мероприятия от начала до конца, включая выбор места проведения, разработку темы, составление бюджета и работу с поставщиками.</p>                
             </div>
         </div>
         <NuxtLink to="/services" class="py-0.5 px-4 rounded-full bg-[#b684b3] border border-[#b684b3] text-white transition-all duration-500 hover:text-[#b684b3] hover:bg-transparent w-fit self-end">Узнать подробнее</NuxtLink>
