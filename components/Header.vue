@@ -9,6 +9,7 @@
                 <NuxtLink to="/gallery" class="flex flex-col after:transition-all after:duration-500 after:h-px after:w-0 after:bg-[#b684b3] hover:after:w-full">Фотогалерея</NuxtLink>
                 <NuxtLink to="/about" class="flex flex-col after:transition-all after:duration-500 after:h-px after:w-0 after:bg-[#b684b3] hover:after:w-full">О нас</NuxtLink>
                 <NuxtLink to="/contacts" class="flex flex-col after:transition-all after:duration-500 after:h-px after:w-0 after:bg-[#b684b3] hover:after:w-full">Контакты</NuxtLink>
+                <NuxtLink v-if="authenticated && role == 'admin'" to="/admin" class="flex flex-col after:transition-all after:duration-500 after:h-px after:w-0 after:bg-[#b684b3] hover:after:w-full">Админ панель</NuxtLink>
                 <NuxtLink v-if="authenticated" to="/profile">
                     <Icon class="text-[28px] text-[#b684b3]" name="material-symbols:account-circle"/>
                 </NuxtLink>

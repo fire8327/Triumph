@@ -14,7 +14,7 @@
             <button type="submit" class="px-4 py-2 bg-[#b684b3] text-white rounded-full w-[160px] text-center">Обновить данные</button>
         </FormKit>
     </div>
-    <div class="flex flex-col gap-6">
+    <div class="flex flex-col gap-6" v-if="orders.length>0">
         <p class="text-3xl font-Comfortaa text-[#b684b3]">Заказанные услуги</p>
         <div class="flex flex-col gap-8 text-lg rounded-xl border border-[#b684b3] p-4 relative lg:w-1/2" v-for="order in orders">
             <div class="flex flex-col gap-4">
