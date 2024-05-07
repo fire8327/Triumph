@@ -1,5 +1,14 @@
 <template>
     <div class="flex flex-col gap-6">
+        <p class="text-3xl font-Comfortaa text-[#b684b3]">Добавление фото в слайдер</p>
+        <FormKit @submit="sliderForm" type="form" form-class="flex flex-col gap-6 full" :actions="false" messages-class="hidden">
+            <div class="flex flex-col gap-6 xl:gap-4 items-center w-full">
+                <FormKit @change="imageToBase" accept=".png,.jpg,.jpeg,.svg,.webp,.bmp" type="file" name="Фото" validation="required" messages-class="text-[#E9556D] font-Comfortaa text-base mt-2" outer-class="w-full" input-class="px-4 py-2 border border-[#b684b3] rounded-xl focus:outline-none w-full"/>                
+                <FormKit type="submit" input-class="w-[160px] text-center py-0.5 px-4 rounded-full bg-[#b684b3] border border-[#b684b3] text-white transition-all duration-500 hover:text-[#b684b3] hover:bg-transparent">Добавить</FormKit>
+            </div>
+        </FormKit>
+    </div>
+    <div class="flex flex-col gap-6">
         <p class="text-3xl font-Comfortaa text-[#b684b3]">Заказанные услуги</p>
         <div class="flex flex-col gap-8 text-lg rounded-xl border border-[#b684b3] p-4 relative lg:w-1/2" v-for="order in orders">
             <div class="flex flex-col gap-4">
@@ -89,6 +98,37 @@
             setTimeout(() => {
                 messageTitle.value = null
             }, 3000) 
+        }
+    }
+     
+
+    /* добавление фото */
+    const imageSlider = ref()
+    const imageToBase = (el) => {
+        const file = el.target.files[0]
+        console.log(file)
+        let reader = new FileReader()
+        reader.onloadend = () => {
+            imageSlider.value = reader.result
+        }
+        reader.readAsDataURL(file)
+    }
+
+    /* форма слайдера */
+    const sliderForm = async () => {        
+        const { data, error } = await supabase
+        .from('gallery')
+        .insert([
+            { img: `${imageSlider.value}` },
+        ])
+        .select()          
+
+        if (data) {
+            messageTitle.value = 'Успешное добавление!', messageType.value = true 
+            setTimeout(() => {
+                messageTitle.value = null
+            }, 3000) 
+            imageSlider.value = "" 
         }
     }
 </script>
