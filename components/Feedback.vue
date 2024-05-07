@@ -9,12 +9,12 @@
         <Icon class="text-3xl text-white" name="ic:baseline-close"/>
     </button>
     <div class="fixed top-1/2 -translate-y-1/2 left-1/2 z-[6] transition-all duration-50 w-full px-[15px] flex items-center justify-center text-xl" :class="isFeedbackShow ? '-translate-x-1/2' : 'translate-x-[5000px]'">
-        <FormKit type="form" :actions="false" form-class="p-4 bg-white flex flex-col gap-8 w-full max-w-[300px] rounded-xl" messages-class="hidden">
+        <FormKit @submit="feedback" type="form" :actions="false" form-class="p-4 bg-white flex flex-col gap-8 w-full max-w-[300px] rounded-xl" messages-class="hidden">
             <p class="text-xl font-Comfortaa text-[#b684b3]">Форма обратной связи</p>
             <div class="flex flex-col gap-4">
-                <FormKit type="text" name="Имя" validation="required" messages-class="text-[#E9556D] font-Comfortaa" input-class="w-full rounded-xl bg-transparent focus:outline-none border border-[#b684b3] py-2 px-4" placeholder="Ваше имя"></FormKit>
-                <FormKit type="text" name="Почта" validation="required|email" messages-class="text-[#E9556D] font-Comfortaa" input-class="w-full rounded-xl bg-transparent focus:outline-none border border-[#b684b3] py-2 px-4" placeholder="Ваша почта"></FormKit>
-                <FormKit type="text" name="Номер телефона" validation="required" messages-class="text-[#E9556D] font-Comfortaa" input-class="w-full rounded-xl bg-transparent focus:outline-none border border-[#b684b3] py-2 px-4" placeholder="Ваш номер телефона"></FormKit>
+                <FormKit type="text" v-model="feedbackForm.name" name="Имя" validation="required" messages-class="text-[#E9556D] font-Comfortaa" input-class="w-full rounded-xl bg-transparent focus:outline-none border border-[#b684b3] py-2 px-4" placeholder="Ваше имя"></FormKit>
+                <FormKit type="text" v-model="feedbackForm.email" name="Почта" validation="required|email" messages-class="text-[#E9556D] font-Comfortaa" input-class="w-full rounded-xl bg-transparent focus:outline-none border border-[#b684b3] py-2 px-4" placeholder="Ваша почта"></FormKit>
+                <FormKit type="text" v-model="feedbackForm.phone" name="Номер телефона" validation="required|length:11" messages-class="text-[#E9556D] font-Comfortaa" input-class="w-full rounded-xl bg-transparent focus:outline-none border border-[#b684b3] py-2 px-4" placeholder="Ваш номер телефона"></FormKit>
             </div>
             <button type="submit" class="py-0.5 mx-auto px-4 rounded-full bg-[#b684b3] border border-[#b684b3] text-white transition-all duration-500 hover:text-[#b684b3] hover:bg-transparent w-fit">Отправить</button>
         </FormKit>
@@ -24,4 +24,45 @@
 <script setup>
     /* открытие формы */
     const isFeedbackShow = ref(false)
+
+
+    /* создание сообщений */
+    const { messageTitle, messageType } = storeToRefs(useMessagesStore())
+
+
+    /* отправка данных */
+    const token = "7089593722:AAFSLZxkxkq0GVp0yjUoYO0I1EKPEBZZROU"
+    const chatId = "-4233107265"
+    const URL = `https://api.telegram.org/bot${token}/sendMessage`
+
+    const feedbackForm = ref({
+        name: "",
+        email: "",
+        phone: ""
+    })
+
+    const feedback = async() =>{
+        let msg = "<b>Заявка на обратную связь</b>\n"
+        + `<b>Имя:</b> ${feedbackForm.value.name}\n`
+        + `<b>Почта:</b> ${feedbackForm.value.email}\n`
+        + `<b>Номер телефона:</b> ${feedbackForm.value.phone}\n`
+        const {data, error} = await useFetch(URL,{
+            body:{
+                'chat_id': chatId,
+                'parse_mode': 'html',
+                'text': msg
+            },
+            method:'post'
+        })
+
+        if (error.value) return messageTitle.value = 'При отправке произошла ошибка!', messageType.value = false
+        messageTitle.value = 'Успешная отправка!', messageType.value = true 
+        feedbackForm.value.name = ""
+        feedbackForm.value.email = ""
+        feedbackForm.value.phone = ""
+        isFeedbackShow.value = false
+        setTimeout(() => {
+            messageTitle.value = null
+        }, 3000);
+    }
 </script>
