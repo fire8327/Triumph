@@ -73,7 +73,7 @@
     </div>
     <div @click="isServicesFormShow = false" class="fixed inset-0 bg-black/30 z-[5] transition-all duration-500" :class="{'-translate-x-full' : !isServicesFormShow}"></div>
     <div class="fixed top-1/2 -translate-y-1/2 left-1/2 z-[6] transition-all duration-50 w-full px-[15px] flex items-center justify-center text-xl" :class="isServicesFormShow ? '-translate-x-1/2' : 'translate-x-[3000px]'">
-        <FormKit @submit="serviceOrder" type="form" form-class="flex flex-col gap-5 w-full max-w-[500px] px-5 py-7 bg-white rounded-[30px] relative" :actions="false">
+        <FormKit @submit="serviceOrder" type="form" form-class="flex flex-col gap-5 w-full max-w-[500px] px-5 py-7 bg-white rounded-[30px] relative" messages-class="hidden" :actions="false">
             <button type="button" @click="isServicesFormShow = false" class="absolute top-2 right-4">
                 <Icon class="text-5xl" name="material-symbols-light:close-small-rounded"/>
             </button>
@@ -82,6 +82,8 @@
                 <FormKit v-model="servicesForm.phone" type="text" name="Телефон" validation="required|length:11" messages-class="text-[#E9556D] font-Comfortaa text-base mt-2" input-class="px-4 py-1 border border-[#b684b3] focus:outline-none rounded-[20px] w-full" placeholder="Телефон"/>
                 <FormKit v-model="servicesForm.service" type="select" name="Выбранная услуга" validation="required" :options="['Детские праздники','Корпоратив','Свадьба','Праздник под ключ']" messages-class="text-[#E9556D] font-Comfortaa text-base mt-2" input-class="px-4 py-1 border border-[#b684b3] focus:outline-none rounded-[20px] w-full" placeholder="Выбранная услуга"/>
                 <FormKit v-model="servicesForm.serviceDesc" type="textarea" name="Описание мероприятия" messages-class="text-[#E9556D] font-Comfortaa text-base mt-2" input-class="px-4 py-1 border border-[#b684b3] focus:outline-none rounded-[20px] w-full" placeholder="Кратко опишите своё мероприятие"/>
+                <FormKit v-model="servicesForm.peopleCount" type="text" name="Количество человек" validation="required|number" messages-class="text-[#E9556D] font-Comfortaa text-base mt-2" input-class="px-4 py-1 border border-[#b684b3] focus:outline-none rounded-[20px] w-full" placeholder="Количество человек"/>
+                <FormKit v-model="servicesForm.date" type="date" name="Дата проведения" validation="required" messages-class="text-[#E9556D] font-Comfortaa text-base mt-2" input-class="px-4 py-1 border border-[#b684b3] focus:outline-none rounded-[20px] w-full" label="Дата проведения" label-class="opacity-80 font-Comfortaa"/>
                 <FormKit v-model="servicesForm.additional" type="checkbox" name="Дополнительные услуги" :options="['Фотограф', 'Аниматор', 'Кейтеринг']" messages-class="text-[#E9556D] font-Comfortaa text-base mt-2" input-class="px-4 py-1 border border-[#b684b3] focus:outline-none rounded-[20px] mr-5" legend-class="opacity-80 font-Comfortaa" label="Дополнительные услуги"/>
             </div>
             <button class="w-fit text-center mx-auto py-0.5 px-4 rounded-full bg-[#b684b3] border border-[#b684b3] text-white transition-all duration-500 hover:text-[#b684b3] hover:bg-transparent">Оформить</button>
@@ -106,7 +108,9 @@
         service: "",
         serviceDesc: "",
         price: null,
-        additional: ""
+        additional: "",
+        date: "",
+        peopleCount: ""
     })
 
 
@@ -128,7 +132,7 @@
         const { data, error } = await supabase
         .from('orders')
         .insert([
-            { userId: `${id.value}`, title: `${servicesForm.value.service}`, desc: `${servicesForm.value.serviceDesc}`, phone:`${servicesForm.value.phone}`, price: servicesForm.value.price, additional: `${servicesForm.value.additional}`},
+            { userId: `${id.value}`, title: `${servicesForm.value.service}`, desc: `${servicesForm.value.serviceDesc}`, phone:`${servicesForm.value.phone}`, price: servicesForm.value.price, additional: `${servicesForm.value.additional}`, date: `${new Date(servicesForm.value.date).toLocaleDateString()}`, peopleCount: `${servicesForm.value.peopleCount}`},
         ])
         .select()
 
@@ -141,6 +145,8 @@
             servicesForm.value.serviceDesc = ""
             servicesForm.value.price = null
             servicesForm.value.additional = ""
+            servicesForm.value.date = ""
+            servicesForm.value.peopleCount = ""
             setTimeout(() => {
                 messageTitle.value = null
             }, 3000) 

@@ -24,6 +24,8 @@
                 <p><span class="font-Comfortaa">Наименование услуги:</span> <span class="opacity-70">{{ order.title }}</span></p>
                 <p><span class="font-Comfortaa">Дополнительные услуги:</span> <span class="opacity-70">{{ order.additional.replace(/,/g, ', ') }}</span></p>
                 <p><span class="font-Comfortaa">Краткое описание мероприятия:</span> <span class="opacity-70">{{ order.desc   }}</span></p>
+                <p><span class="font-Comfortaa">Дата проведения мероприятия:</span> <span class="opacity-70">{{ order.date   }}</span></p>
+                <p><span class="font-Comfortaa">Количество человек:</span> <span class="opacity-70">{{ order.peopleCount   }}</span></p>
                 <p><span class="font-Comfortaa">Цена:</span> <span class="opacity-70">{{ order.price.toLocaleString() }} ₽</span></p>
             </div>
             <button v-if="order.status == 'Новый'" @click="deleteOrder(order.id)" class="absolute top-4 right-4 text-red-500">
