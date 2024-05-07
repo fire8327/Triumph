@@ -1,12 +1,23 @@
 <template>
     <div class="flex flex-col gap-6">
-        <p class="text-3xl font-Comfortaa text-[#b684b3]">Добавление фото в слайдер</p>
+        <p class="text-3xl font-Comfortaa text-[#b684b3]">Добавление фото в галерею</p>
         <FormKit @submit="sliderForm" type="form" form-class="flex flex-col gap-6 full" :actions="false" messages-class="hidden">
             <div class="flex flex-col gap-6 xl:gap-4 items-center w-full">
                 <FormKit @change="imageToBase" accept=".png,.jpg,.jpeg,.svg,.webp,.bmp" type="file" name="Фото" validation="required" messages-class="text-[#E9556D] font-Comfortaa text-base mt-2" outer-class="w-full" input-class="px-4 py-2 border border-[#b684b3] rounded-xl focus:outline-none w-full"/>                
                 <FormKit type="submit" input-class="w-[160px] text-center py-0.5 px-4 rounded-full bg-[#b684b3] border border-[#b684b3] text-white transition-all duration-500 hover:text-[#b684b3] hover:bg-transparent">Добавить</FormKit>
             </div>
         </FormKit>
+    </div>
+    <div class="flex flex-col gap-6">
+        <p class="text-3xl font-Comfortaa text-[#b684b3]">Удаление фото из галереи</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+            <div class="relative group transition-all duration-500 hover:scale-110" v-for="image in images">
+                <img :src="image.img" alt="" class="aspect-video object-cover rounded-xl">
+                <button @click="deleteImage(image.id)" class="inset-0 bg-black/30 absolute rounded-xl flex items-center justify-center opacity-0 transition-all duration-500 group-hover:opacity-100">
+                    <Icon name="material-symbols:delete-forever" class="text-6xl text-white"/>
+                </button>
+            </div>
+        </div>
     </div>
     <div class="flex flex-col gap-6">
         <p class="text-3xl font-Comfortaa text-[#b684b3]">Заказанные услуги</p>
@@ -114,6 +125,7 @@
         reader.readAsDataURL(file)
     }
 
+
     /* форма слайдера */
     const sliderForm = async () => {        
         const { data, error } = await supabase
@@ -130,5 +142,29 @@
             }, 3000) 
             imageSlider.value = "" 
         }
+    }
+
+
+    /* галерея */
+    const { data: images, error: imagesError } = await supabase
+    .from('gallery')
+    .select("*")
+
+
+    /* удаление фото из галереи */
+    const deleteImage = async (imageId) => {        
+        const { error } = await supabase
+        .from('gallery')
+        .delete()
+        .eq('id', `${imageId}`)
+          
+        messageTitle.value = 'Изображение удалено!', messageType.value = true 
+        setTimeout(() => {
+            messageTitle.value = null
+        }, 3000) 
+        setTimeout(() => {
+            router.go()
+            messageTitle.value = null
+        }, 1500) 
     }
 </script>
