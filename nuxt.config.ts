@@ -18,5 +18,10 @@ export default defineNuxtConfig({
   },
   supabase: {
     redirect: false
+  },
+  postcss: {
+    plugins: {
+      cssnano: false 
+    }
   }
 })
