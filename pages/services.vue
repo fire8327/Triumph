@@ -17,7 +17,7 @@
                 </ul>
                 <p class="font-Comfortaa text-3xl opacity-80">{{ prices.kids.toLocaleString() }}₽</p>
                 <button v-if="authenticated && role != 'admin'" @click="isServicesFormShow = true, selectService('Детские праздники', prices.kids)" class="w-fit text-center py-0.5 px-4 rounded-full bg-[#b684b3] border border-[#b684b3] text-white transition-all duration-500 hover:text-[#b684b3] hover:bg-transparent">Заказать праздник</button>
-                <p class="text-base opacity-70 italic">Для заказа войдите в аккаунт/зарегистрируйтесь</p>                
+                <p v-else class="text-base opacity-70 italic">Для заказа войдите в аккаунт/зарегистрируйтесь</p>                
             </div>
         </div>
     </div>
@@ -35,7 +35,7 @@
                 </ul>
                 <p class="font-Comfortaa text-3xl opacity-80">{{ prices.companyParty.toLocaleString() }}₽</p>
                 <button v-if="authenticated && role != 'admin'" @click="isServicesFormShow = true, selectService('Корпоратив', prices.companyParty)" class="w-fit text-center py-0.5 px-4 rounded-full bg-[#b684b3] border border-[#b684b3] text-white transition-all duration-500 hover:text-[#b684b3] hover:bg-transparent">Заказать праздник</button>
-                <p class="text-base opacity-70 italic">Для заказа войдите в аккаунт/зарегистрируйтесь</p>                
+                <p v-else class="text-base opacity-70 italic">Для заказа войдите в аккаунт/зарегистрируйтесь</p>                
             </div>
         </div>
     </div>
@@ -53,7 +53,7 @@
                 </ul>
                 <p class="font-Comfortaa text-3xl opacity-80">{{ prices.wedding.toLocaleString() }}₽</p>
                 <button v-if="authenticated && role != 'admin'" @click="isServicesFormShow = true, selectService('Свадьба', prices.wedding)" class="w-fit text-center py-0.5 px-4 rounded-full bg-[#b684b3] border border-[#b684b3] text-white transition-all duration-500 hover:text-[#b684b3] hover:bg-transparent">Заказать праздник</button>
-                <p class="text-base opacity-70 italic">Для заказа войдите в аккаунт/зарегистрируйтесь</p>                
+                <p v-else class="text-base opacity-70 italic">Для заказа войдите в аккаунт/зарегистрируйтесь</p>                
             </div>
         </div>
     </div>
@@ -71,7 +71,7 @@
                 </ul>
                 <p class="font-Comfortaa text-3xl opacity-80">{{ prices.readyMade.toLocaleString() }}₽</p>
                 <button v-if="authenticated && role != 'admin'" @click="isServicesFormShow = true, selectService('Праздник под ключ', prices.readyMade)" class="w-fit text-center py-0.5 px-4 rounded-full bg-[#b684b3] border border-[#b684b3] text-white transition-all duration-500 hover:text-[#b684b3] hover:bg-transparent">Заказать праздник</button>
-                <p class="text-base opacity-70 italic">Для заказа войдите в аккаунт/зарегистрируйтесь</p>                
+                <p v-else class="text-base opacity-70 italic">Для заказа войдите в аккаунт/зарегистрируйтесь</p>                
             </div>
         </div>
     </div>
@@ -88,9 +88,10 @@
                 <FormKit v-model="servicesForm.serviceDesc" type="textarea" name="Описание мероприятия" messages-class="text-[#E9556D] font-Comfortaa text-base mt-2" input-class="px-4 py-1 border border-[#b684b3] focus:outline-none rounded-[20px] w-full" placeholder="Кратко опишите своё мероприятие"/>
                 <FormKit v-model="servicesForm.peopleCount" type="text" name="Количество человек" validation="required|number" messages-class="text-[#E9556D] font-Comfortaa text-base mt-2" input-class="px-4 py-1 border border-[#b684b3] focus:outline-none rounded-[20px] w-full" placeholder="Количество человек"/>
                 <FormKit v-model="servicesForm.date" type="date" name="Дата проведения" validation="required" messages-class="text-[#E9556D] font-Comfortaa text-base mt-2" input-class="px-4 py-1 border border-[#b684b3] focus:outline-none rounded-[20px] w-full" label="Дата проведения" label-class="opacity-80 font-Comfortaa"/>
-                <FormKit v-model="servicesForm.additional" type="checkbox" name="Дополнительные услуги" :options="['Фотограф', 'Аниматор', 'Кейтеринг']" messages-class="text-[#E9556D] font-Comfortaa text-base mt-2" input-class="px-4 py-1 border border-[#b684b3] focus:outline-none rounded-[20px] mr-5" legend-class="opacity-80 font-Comfortaa" label="Дополнительные услуги"/>
+                <FormKit v-model="servicesForm.additional" type="checkbox" name="Дополнительные услуги" :options="['Фотограф', 'Ведущий', 'Кейтеринг', 'Украшения', 'Вынос торта']" messages-class="text-[#E9556D] font-Comfortaa text-base mt-2" input-class="px-4 py-1 border border-[#b684b3] focus:outline-none rounded-[20px] mr-5" legend-class="opacity-80 font-Comfortaa" label="Дополнительные услуги"/>
             </div>
             <button class="w-fit text-center mx-auto py-0.5 px-4 rounded-full bg-[#b684b3] border border-[#b684b3] text-white transition-all duration-500 hover:text-[#b684b3] hover:bg-transparent">Оформить</button>
+            <p class="text-xs opacity-70">*Конечная стоимость может меняться в зависимости от выбранных услуг</p>
         </FormKit>    
     </div>
 </template>
