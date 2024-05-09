@@ -17,7 +17,7 @@
                 </ul>
                 <p class="font-Comfortaa text-3xl opacity-80">{{ prices.kids.toLocaleString() }}₽</p>
                 <button v-if="authenticated && role != 'admin'" @click="isServicesFormShow = true, selectService('Детские праздники', prices.kids)" class="w-fit text-center py-0.5 px-4 rounded-full bg-[#b684b3] border border-[#b684b3] text-white transition-all duration-500 hover:text-[#b684b3] hover:bg-transparent">Заказать праздник</button>
-                <p class="text-base opacity-70 italic">Для заказа необходимо войти в аккаунт</p>                
+                <p class="text-base opacity-70 italic">Для заказа войдите в аккаунт/зарегистрируйтесь</p>                
             </div>
         </div>
     </div>
@@ -35,7 +35,7 @@
                 </ul>
                 <p class="font-Comfortaa text-3xl opacity-80">{{ prices.companyParty.toLocaleString() }}₽</p>
                 <button v-if="authenticated && role != 'admin'" @click="isServicesFormShow = true, selectService('Корпоратив', prices.companyParty)" class="w-fit text-center py-0.5 px-4 rounded-full bg-[#b684b3] border border-[#b684b3] text-white transition-all duration-500 hover:text-[#b684b3] hover:bg-transparent">Заказать праздник</button>
-                <p class="text-base opacity-70 italic">Для заказа необходимо войти в аккаунт</p>                
+                <p class="text-base opacity-70 italic">Для заказа войдите в аккаунт/зарегистрируйтесь</p>                
             </div>
         </div>
     </div>
@@ -53,7 +53,7 @@
                 </ul>
                 <p class="font-Comfortaa text-3xl opacity-80">{{ prices.wedding.toLocaleString() }}₽</p>
                 <button v-if="authenticated && role != 'admin'" @click="isServicesFormShow = true, selectService('Свадьба', prices.wedding)" class="w-fit text-center py-0.5 px-4 rounded-full bg-[#b684b3] border border-[#b684b3] text-white transition-all duration-500 hover:text-[#b684b3] hover:bg-transparent">Заказать праздник</button>
-                <p class="text-base opacity-70 italic">Для заказа необходимо войти в аккаунт</p>                
+                <p class="text-base opacity-70 italic">Для заказа войдите в аккаунт/зарегистрируйтесь</p>                
             </div>
         </div>
     </div>
@@ -71,7 +71,7 @@
                 </ul>
                 <p class="font-Comfortaa text-3xl opacity-80">{{ prices.readyMade.toLocaleString() }}₽</p>
                 <button v-if="authenticated && role != 'admin'" @click="isServicesFormShow = true, selectService('Праздник под ключ', prices.readyMade)" class="w-fit text-center py-0.5 px-4 rounded-full bg-[#b684b3] border border-[#b684b3] text-white transition-all duration-500 hover:text-[#b684b3] hover:bg-transparent">Заказать праздник</button>
-                <p class="text-base opacity-70 italic">Для заказа необходимо войти в аккаунт</p>                
+                <p class="text-base opacity-70 italic">Для заказа войдите в аккаунт/зарегистрируйтесь</p>                
             </div>
         </div>
     </div>
