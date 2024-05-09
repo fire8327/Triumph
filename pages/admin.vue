@@ -142,6 +142,10 @@
             setTimeout(() => {
                 messageTitle.value = null
             }, 3000) 
+            setTimeout(() => {
+                router.go()
+                messageTitle.value = null
+            }, 1500) 
             imageSlider.value = "" 
         }
     }
