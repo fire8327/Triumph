@@ -5,22 +5,7 @@
             <div class="flex flex-col">
                 <div class="flex items-center">
                     <div class="relative">
-                        <p class="text-xl bg-white p-4 rounded-3xl relative z-[1] font-Comfortaa">Позвоните нам</p>
-                        <div class="bg-[#b684b3]/70 h-5 w-5 absolute bottom-0 right-0"></div>
-                    </div>
-                    <div class="bg-[#b684b3]/70 h-full rounded-tr-3xl rounded-tl-3xl grow"></div>
-                </div>
-                <div class="p-4 rounded-l-3xl rounded-br-3xl bg-[#b684b3]/70 text-white flex flex-col items-center justify-center min-h-[160px] md:h-full">
-                    <p class="text-base">Бесплатный звонок</p>
-                    <NuxtLink to="tel:8 (800) 555-35-35" class="text-2xl font-normal">8 (800) 555-35-35</NuxtLink>
-                    <p class="text-base mt-4">Горячая линия</p>
-                    <NuxtLink to="tel:8 (800) 555-35-35" class="text-2xl font-normal">8 (800) 555-35-35</NuxtLink>
-                </div>
-            </div>
-            <div class="flex flex-col">
-                <div class="flex items-center">
-                    <div class="relative">
-                        <p class="text-xl bg-white p-4 rounded-3xl relative z-[1] font-Comfortaa">Позвоните нам</p>
+                        <p class="text-xl bg-white p-4 rounded-3xl relative z-[1] font-Comfortaa">Напишите нам</p>
                         <div class="bg-[#b684b3]/70 h-5 w-5 absolute bottom-0 right-0"></div>
                     </div>
                     <div class="bg-[#b684b3]/70 h-full rounded-tr-3xl rounded-tl-3xl grow"></div>
@@ -61,8 +46,8 @@
                     <div class="bg-[#b684b3]/70 h-full rounded-tr-3xl rounded-tl-3xl grow"></div>
                 </div>
                 <div class="p-4 rounded-l-3xl rounded-br-3xl bg-[#b684b3]/70 text-white flex flex-col items-center justify-center text-center min-h-[160px] md:h-full">
-                    <p class="text-base">Адрес офиса в Москве</p>
-                    <p class="text-2xl font-normal">ул. Пушкина, д. Колотушкина</p>
+                    <p class="text-base">Адрес офиса</p>
+                    <p class="text-2xl font-normal">г.Химки, проспект Мельникова 5к1</p>
                     <p class="text-base mt-4">Часы работы:</p>
                     <p class="text-2xl font-normal">Пн-пт: 10:00-20:00</p>
                 </div>
