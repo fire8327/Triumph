@@ -130,11 +130,39 @@
     const { authenticated, role, id } = storeToRefs(useUserStore())
 
 
+    /* отправка данных */
+    const token = "7089593722:AAFSLZxkxkq0GVp0yjUoYO0I1EKPEBZZROU"
+    const chatId = "-4233107265"
+    const URL = `https://api.telegram.org/bot${token}/sendMessage`
+
+
     /* подключение БД и создание сообщений */
     const { messageTitle, messageType } = storeToRefs(useMessagesStore())
     const supabase = useSupabaseClient() 
     const serviceOrder = async () => {
-        const { data, error } = await supabase
+        const { data: users } = await supabase
+        .from('users')
+        .select()
+        .eq('id', `${id.value}`)
+
+        let msg = "<b>Заявка на оформление услуги</b>\n"
+        + `<b>ID пользователя:</b> ${users[0].id}\n`
+        + `<b>Пользователя:</b> ${users[0].surname} ${users[0].name}\n`
+        + `<b>Номер телефона:</b> ${servicesForm.value.phone}\n`
+        + `<b>Мероприятие:</b> ${servicesForm.value.service}\n`
+        + `<b>Дополнительные услуги:</b> ${servicesForm.value.additional}\n`
+        + `<b>Дата:</b> ${new Date(servicesForm.value.date).toLocaleDateString()}\n`
+        + `<b>Количество человек:</b> ${servicesForm.value.peopleCount}\n`
+        const {data, error} = await useFetch(URL,{
+            body:{
+                'chat_id': chatId,
+                'parse_mode': 'html',
+                'text': msg
+            },
+            method:'post'
+        })
+
+        const { data:orders, error:ordersError } = await supabase
         .from('orders')
         .insert([
             { userId: `${id.value}`, title: `${servicesForm.value.service}`, desc: `${servicesForm.value.serviceDesc}`, phone:`${servicesForm.value.phone}`, price: servicesForm.value.price, additional: `${servicesForm.value.additional}`, date: `${new Date(servicesForm.value.date).toLocaleDateString()}`, peopleCount: `${servicesForm.value.peopleCount}`},
